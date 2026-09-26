@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    volumes:
+      - server_data:/app/server/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=data/sqlite.db
+    command: >
+      sh -c "mkdir -p data && npm run db:generate && npm run db:migrate && npm run db:seed && npm start"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
+
+volumes:
+  server_data:
