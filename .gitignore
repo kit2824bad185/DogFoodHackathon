@@ -30,7 +30,7 @@ dist-ssr
 
 # Database
 server/data/
-server/sqlite.db
+server/sqlite.db*
 server/drizzle/
 
 # Cache
