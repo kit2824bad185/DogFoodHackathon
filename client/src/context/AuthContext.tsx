@@ -5,7 +5,7 @@ export const DEMO_PERSONAS: UserPersona[] = [
   {
     id: 'demo-judge-1',
     name: 'Dr. Sarah Chen',
-    email: 'sarah.judge@dogfood.local',
+    email: 'sarah.judge@veyra.dev',
     role: 'judge',
     title: 'Lead AI & Systems Judge',
     avatar: '👩‍⚖️',
@@ -13,7 +13,7 @@ export const DEMO_PERSONAS: UserPersona[] = [
   {
     id: 'demo-judge-2',
     name: 'Marcus Vance',
-    email: 'marcus.judge@dogfood.local',
+    email: 'marcus.judge@veyra.dev',
     role: 'judge',
     title: 'Product & Design Judge',
     avatar: '👨‍⚖️',
@@ -21,7 +21,7 @@ export const DEMO_PERSONAS: UserPersona[] = [
   {
     id: 'demo-organizer',
     name: 'Alex Mercer',
-    email: 'organizer@dogfood.local',
+    email: 'organizer@veyra.dev',
     role: 'organizer',
     title: 'Hackathon Director',
     avatar: '📋',
@@ -29,7 +29,7 @@ export const DEMO_PERSONAS: UserPersona[] = [
   {
     id: 'demo-participant',
     name: 'Alex Rivera',
-    email: 'alex.participant@dogfood.local',
+    email: 'alex.participant@veyra.dev',
     role: 'participant',
     title: 'Project Lead (EcoTrack)',
     avatar: '🚀',
@@ -37,7 +37,7 @@ export const DEMO_PERSONAS: UserPersona[] = [
   {
     id: 'demo-admin',
     name: 'Root Administrator',
-    email: 'root@dogfood.local',
+    email: 'root@veyra.dev',
     role: 'admin',
     title: 'Platform Superadmin',
     avatar: '🛡️',

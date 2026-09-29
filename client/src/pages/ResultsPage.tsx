@@ -45,7 +45,7 @@ export const ResultsPage: React.FC = () => {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
         <div>
-          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', marginBottom: '0.25rem' }}>
+          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
             🏆 Official Hackathon Leaderboard
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
@@ -63,7 +63,7 @@ export const ResultsPage: React.FC = () => {
               background: 'var(--bg-secondary)',
               border: '1px solid var(--border-subtle)',
               borderRadius: 'var(--radius-sm)',
-              color: '#fff',
+              color: 'var(--text-primary)',
               padding: '0.5rem 0.85rem',
               fontSize: '0.85rem',
               outline: 'none',
@@ -118,7 +118,7 @@ export const ResultsPage: React.FC = () => {
                   <div style={{ fontSize: '1.75rem', marginBottom: '0.25rem' }}>
                     {getProjectInfo(top2.submissionId).avatar}
                   </div>
-                  <h3 style={{ color: '#fff', fontSize: '1.15rem' }}>
+                  <h3 style={{ color: 'var(--text-primary)', fontSize: '1.15rem' }}>
                     {getProjectInfo(top2.submissionId).title}
                   </h3>
                   <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
@@ -141,7 +141,7 @@ export const ResultsPage: React.FC = () => {
                   <div style={{ fontSize: '2rem', marginBottom: '0.25rem' }}>
                     {getProjectInfo(top1.submissionId).avatar}
                   </div>
-                  <h3 style={{ color: '#fff', fontSize: '1.35rem' }}>
+                  <h3 style={{ color: 'var(--text-primary)', fontSize: '1.35rem' }}>
                     {getProjectInfo(top1.submissionId).title}
                   </h3>
                   <p style={{ fontSize: '0.85rem', color: '#fbbf24', marginBottom: '0.75rem' }}>
@@ -166,7 +166,7 @@ export const ResultsPage: React.FC = () => {
                   <div style={{ fontSize: '1.75rem', marginBottom: '0.25rem' }}>
                     {getProjectInfo(top3.submissionId).avatar}
                   </div>
-                  <h3 style={{ color: '#fff', fontSize: '1.15rem' }}>
+                  <h3 style={{ color: 'var(--text-primary)', fontSize: '1.15rem' }}>
                     {getProjectInfo(top3.submissionId).title}
                   </h3>
                   <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
@@ -238,7 +238,7 @@ export const ResultsPage: React.FC = () => {
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                           <span style={{ fontSize: '1.25rem' }}>{project.avatar}</span>
                           <div>
-                            <div style={{ fontWeight: 600, color: '#fff' }}>{project.title}</div>
+                            <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{project.title}</div>
                             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                               {project.team} &bull; <code>{res.submissionId}</code>
                             </div>
@@ -256,7 +256,7 @@ export const ResultsPage: React.FC = () => {
                             style={{
                               flex: 1,
                               height: '8px',
-                              background: '#1e2235',
+                              background: '#e2e8f0',
                               borderRadius: '4px',
                               overflow: 'hidden',
                             }}
@@ -277,7 +277,7 @@ export const ResultsPage: React.FC = () => {
                             style={{
                               fontFamily: 'var(--font-mono)',
                               fontWeight: 700,
-                              color: isTop ? '#34d399' : '#fff',
+                              color: isTop ? '#059669' : 'var(--text-primary)',
                               minWidth: '45px',
                             }}
                           >

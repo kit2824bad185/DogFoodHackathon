@@ -1,32 +1,88 @@
 version: '3.8'
 
 services:
-  server:
+  database:
     build:
       context: .
       dockerfile: server/Dockerfile
+    container_name: database
+    restart: unless-stopped
+    volumes:
+      - server_data:/app/server/data
+    command: >
+      sh -c "mkdir -p /app/server/data &&
+             [ -f /app/server/data/sqlite.db ] || cp /app/server/sqlite.db /app/server/data/sqlite.db &&
+             chmod 666 /app/server/data/sqlite.db* 2>/dev/null || true &&
+             echo 'Database container initialized and ready.' &&
+             tail -f /dev/null"
+    healthcheck:
+      test: ["CMD-SHELL", "[ -f /app/server/data/sqlite.db ]"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+      start_period: 1s
+    networks:
+      default:
+        aliases:
+          - database
+          - db
+
+  backend:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: backend
+    restart: unless-stopped
     volumes:
       - server_data:/app/server/data
     environment:
       - NODE_ENV=production
       - PORT=3000
       - DATABASE_URL=data/sqlite.db
+      - JWT_SECRET=dogfood-2026-hackathon-offline-secret
+    ports:
+      - "3000:3000"
+    depends_on:
+      database:
+        condition: service_healthy
     command: >
-      sh -c "mkdir -p data && npm run db:generate && npm run db:migrate && npm run db:seed && npm start"
+      sh -c "mkdir -p data &&
+             [ -f data/sqlite.db ] || cp sqlite.db data/sqlite.db &&
+             npm start"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/v1/health"]
-      interval: 10s
-      timeout: 5s
+      interval: 3s
+      timeout: 2s
       retries: 5
+      start_period: 2s
+    networks:
+      default:
+        aliases:
+          - backend
+          - server
 
-  client:
+  frontend:
     build:
       context: .
       dockerfile: client/Dockerfile
+    container_name: frontend
+    restart: unless-stopped
     ports:
       - "8080:80"
     depends_on:
-      - server
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/"]
+      interval: 3s
+      timeout: 2s
+      retries: 5
+      start_period: 2s
+    networks:
+      default:
+        aliases:
+          - frontend
+          - client
 
 volumes:
   server_data:

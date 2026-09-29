@@ -5,7 +5,7 @@ import type { NormalizationRunResponse } from '../types/judging';
 
 export const NormalizationStudio: React.FC = () => {
   const { currentUser, switchUser } = useAuth();
-  const [eventId] = useState('event-dogfood-2026');
+  const [eventId] = useState('event-veyra-2026');
   const [minSampleCount, setMinSampleCount] = useState<number>(3);
   const [running, setRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -17,7 +17,7 @@ export const NormalizationStudio: React.FC = () => {
     return (
       <div className="card" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
         <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔬</div>
-        <h2 style={{ color: '#fff', marginBottom: '0.75rem' }}>Organizer Privileges Required</h2>
+        <h2 style={{ color: 'var(--text-primary)', marginBottom: '0.75rem' }}>Organizer Privileges Required</h2>
         <p style={{ color: 'var(--text-secondary)', maxWidth: '520px', margin: '0 auto 1.5rem' }}>
           Statistical Z-score normalization execution and judge calibration metrics are restricted to
           organizers and admins. Switch persona to test this tool.
@@ -52,7 +52,7 @@ export const NormalizationStudio: React.FC = () => {
     <div>
       {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', marginBottom: '0.25rem' }}>
+        <h1 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
           🔬 Normalization &amp; Calibration Lab
         </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
@@ -62,7 +62,7 @@ export const NormalizationStudio: React.FC = () => {
 
       {/* Control Panel Card */}
       <div className="card" style={{ marginBottom: '2rem' }}>
-        <h2 style={{ fontSize: '1.25rem', color: '#fff', marginBottom: '1rem' }}>
+        <h2 style={{ fontSize: '1.25rem', color: 'var(--text-primary)', marginBottom: '1rem' }}>
           ⚡ Trigger Normalization Run
         </h2>
 
@@ -81,7 +81,7 @@ export const NormalizationStudio: React.FC = () => {
                 border: '1px solid var(--border-subtle)',
                 borderRadius: 'var(--radius-sm)',
                 padding: '0.65rem 0.85rem',
-                color: '#fff',
+                color: 'var(--text-primary)',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.85rem',
                 outline: 'none',
@@ -147,7 +147,7 @@ export const NormalizationStudio: React.FC = () => {
                 <span className="badge badge-success" style={{ marginBottom: '0.25rem' }}>
                   ✓ Normalization Complete
                 </span>
-                <h3 style={{ color: '#fff', fontSize: '1.1rem' }}>Run ID: <code>{latestRun.runId}</code></h3>
+                <h3 style={{ color: 'var(--text-primary)', fontSize: '1.1rem' }}>Run ID: <code>{latestRun.runId}</code></h3>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   Computed at: {new Date(latestRun.calculatedAt || Date.now()).toLocaleTimeString()} &bull;{' '}
                   {latestRun.results.length} submissions ranked
@@ -173,7 +173,7 @@ export const NormalizationStudio: React.FC = () => {
 
           {/* Judge Calibration & Consistency Matrix */}
           <div className="card" style={{ marginBottom: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.15rem', color: '#fff', marginBottom: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
               📊 Judge Variance &amp; Scoring Calibration
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>
@@ -204,7 +204,7 @@ export const NormalizationStudio: React.FC = () => {
                         <td style={{ textAlign: 'center', fontFamily: 'var(--font-mono)' }}>
                           {j.sampleCount}
                         </td>
-                        <td style={{ textAlign: 'right', fontFamily: 'var(--font-mono)', color: '#fff' }}>
+                        <td style={{ textAlign: 'right', fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>
                           {j.meanScore.toFixed(2)}
                         </td>
                         <td style={{ textAlign: 'right', fontFamily: 'var(--font-mono)', color: '#818cf8' }}>

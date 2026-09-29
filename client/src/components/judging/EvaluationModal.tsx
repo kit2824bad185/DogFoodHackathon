@@ -159,7 +159,7 @@ export const EvaluationModal: React.FC<Props> = ({ assignmentId, onClose, onSucc
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.25rem' }}>
               <span style={{ fontSize: '1.5rem' }}>{project.avatar}</span>
-              <h2 style={{ fontSize: '1.4rem', color: '#fff' }}>{project.title}</h2>
+              <h2 style={{ fontSize: '1.4rem', color: 'var(--text-primary)' }}>{project.title}</h2>
               <span className="badge badge-info">{project.category}</span>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
@@ -234,7 +234,7 @@ export const EvaluationModal: React.FC<Props> = ({ assignmentId, onClose, onSucc
         {/* Conflict Form View */}
         {showConflictForm ? (
           <div style={{ background: 'var(--bg-surface)', padding: '1.25rem', borderRadius: 'var(--radius-md)', marginBottom: '1.5rem' }}>
-            <h4 style={{ color: '#fff', marginBottom: '0.5rem' }}>Declare Conflict of Interest</h4>
+            <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Declare Conflict of Interest</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>
               If you have a personal, professional, or academic relationship with this team, declare it here to maintain evaluation integrity.
             </p>
@@ -265,7 +265,7 @@ export const EvaluationModal: React.FC<Props> = ({ assignmentId, onClose, onSucc
           /* Rubric Criteria List */
           <div>
             <div style={{ marginBottom: '1rem' }}>
-              <h3 style={{ fontSize: '1rem', color: '#fff', marginBottom: '0.25rem' }}>
+              <h3 style={{ fontSize: '1rem', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
                 {details.rubric.name}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
@@ -341,7 +341,7 @@ export const EvaluationModal: React.FC<Props> = ({ assignmentId, onClose, onSucc
                   Formula: &Sigma;(value &times; weight) across {details.rubric.criteria.length} criteria
                 </p>
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: '#fff' }}>
+              <div style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>
                 {roundedWeightedScore}
               </div>
             </div>

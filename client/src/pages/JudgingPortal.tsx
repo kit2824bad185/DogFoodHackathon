@@ -38,7 +38,7 @@ export const JudgingPortal: React.FC = () => {
     return (
       <div className="card" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
         <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚖️</div>
-        <h2 style={{ color: '#fff', marginBottom: '0.75rem' }}>Judge Workspace Access Required</h2>
+        <h2 style={{ color: 'var(--text-primary)', marginBottom: '0.75rem' }}>Judge Workspace Access Required</h2>
         <p style={{ color: 'var(--text-secondary)', maxWidth: '520px', margin: '0 auto 1.5rem' }}>
           You are currently signed in as <strong>{currentUser.name}</strong> ({currentUser.role}).
           To access the blind assignment workspace and score projects, switch to a judge persona.
@@ -67,7 +67,7 @@ export const JudgingPortal: React.FC = () => {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
         <div>
-          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', marginBottom: '0.25rem' }}>
+          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
             ⚖️ Judge Evaluation Portal
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
@@ -148,7 +148,7 @@ export const JudgingPortal: React.FC = () => {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <span style={{ fontSize: '1.5rem' }}>{project.avatar}</span>
                       <div>
-                        <h3 style={{ fontSize: '1.15rem', color: '#fff', lineHeight: 1.2 }}>{project.title}</h3>
+                        <h3 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', lineHeight: 1.2 }}>{project.title}</h3>
                         <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{project.team}</span>
                       </div>
                     </div>
