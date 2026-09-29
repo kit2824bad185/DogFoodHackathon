@@ -11,7 +11,7 @@ async function seed() {
       id: 'demo-user-1',
       email: 'admin@dogfood.local',
       passwordHash: 'dummy_hash', // replace with actual hash logic when auth is implemented
-      role: 'admin',
+      role: 'ADMIN',
     }).onConflictDoNothing();
 
     logger.info('Seeding completed successfully.');
