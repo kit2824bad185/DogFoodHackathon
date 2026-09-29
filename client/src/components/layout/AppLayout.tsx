@@ -1,21 +1,25 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { Navbar } from './Navbar';
 
 export const AppLayout: React.FC = () => {
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <header style={{ padding: '1rem', background: '#333', color: '#fff' }}>
-        <nav style={{ display: 'flex', gap: '1rem' }}>
-          <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>Dogfood 2026</Link>
-        </nav>
-      </header>
-      
-      <main style={{ flex: 1, padding: '2rem' }}>
+    <div className="app-container">
+      <Navbar />
+
+      <main className="main-content">
         <Outlet />
       </main>
-      
-      <footer style={{ padding: '1rem', background: '#eee', textAlign: 'center' }}>
-        &copy; 2026 Dogfood Hackathon
+
+      <footer className="footer">
+        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+          <div>
+            <strong>Dogfood 2026 Hackathon OS</strong> &bull; Member 2 Judging Engine
+          </div>
+          <div>
+            Zero Cloud &bull; Local SQLite WAL &bull; Z-Score Normalization &bull; Blind Judging RLS
+          </div>
+        </div>
       </footer>
     </div>
   );

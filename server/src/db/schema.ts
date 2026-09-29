@@ -20,3 +20,6 @@ export const auditLogs = sqliteTable('audit_logs', {
   metadata: text('metadata'), // JSON string
   timestamp: text('timestamp').notNull().default(sql`CURRENT_TIMESTAMP`),
 });
+
+// Member 2: Judging Module Tables
+export * from './judging.schema';
