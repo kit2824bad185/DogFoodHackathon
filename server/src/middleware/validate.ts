@@ -1,5 +1,6 @@
+
 import { Request, Response, NextFunction } from 'express';
-import { ZodType } from 'zod';
+import { ZodType, ZodTypeAny } from 'zod';
 
 export const validate = (schema: ZodType<any>) => {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -16,6 +17,17 @@ export const validate = (schema: ZodType<any>) => {
         if ('params' in parsed && parsed.params !== undefined) req.params = parsed.params;
       }
 
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
+};
+
+export const validateBody = (schema: ZodTypeAny) => {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      req.body = await schema.parseAsync(req.body);
       next();
     } catch (error) {
       next(error);

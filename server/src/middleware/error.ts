@@ -10,7 +10,15 @@ export function errorHandler(err: any, req: Request, res: Response, next: NextFu
     return sendError(res, 'VALIDATION_FAILED', 'Invalid request data', err.issues, 400);
   }
 
-  // Handle specific known business errors here if we had custom Error classes
+  // Handle specific known business errors here
+  if (err.name === 'BadRequestError') {
+    return sendError(res, 'BAD_REQUEST', err.message, err.details, 400);
+  }
+
+  if (err.name === 'ConflictError') {
+    return sendError(res, 'CONFLICT', err.message, null, 409);
+  }
+
   if (err.name === 'UnauthorizedError') {
     return sendError(res, 'UNAUTHORIZED', 'Authentication failed', null, 401);
   }

@@ -13,8 +13,12 @@ export function requireRole(...allowedRoles: UserRole[]) {
       sendError(res, 'UNAUTHORIZED', 'Authentication required', null, 401);
       return;
     }
+    const userRole = req.user.role;
+    const isAllowed = (allowedRoles as string[]).some(
+      (r) => r.toLowerCase() === userRole.toLowerCase()
+    );
 
-    if (!allowedRoles.includes(req.user.role)) {
+    if (!isAllowed) {
       sendError(
         res,
         'FORBIDDEN',

@@ -5,5 +5,7 @@ export default defineConfig({
     environment: 'node',
     globals: true,
     include: ['tests/**/*.test.ts'],
+    fileParallelism: false,
+    maxWorkers: 1,
   },
 });

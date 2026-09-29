@@ -8,7 +8,18 @@ export const users = sqliteTable('users', {
   id: text('id').primaryKey(),
   email: text('email').notNull().unique(),
   passwordHash: text('password_hash').notNull(),
-  role: text('role', { enum: ['PARTICIPANT', 'JUDGE', 'ORGANIZER', 'ADMIN'] })
+  role: text('role', {
+    enum: [
+      'PARTICIPANT',
+      'JUDGE',
+      'ORGANIZER',
+      'ADMIN',
+      'participant',
+      'judge',
+      'organizer',
+      'admin',
+    ],
+  })
     .default('PARTICIPANT')
     .notNull(),
   status: text('status', { enum: ['ACTIVE', 'INACTIVE', 'SUSPENDED'] })
@@ -244,7 +255,6 @@ export const auditLogs = sqliteTable('audit_logs', {
     .notNull()
     .$defaultFn(() => new Date()),
 });
-
 // ---------------------------------------------------------------------------
 // Relations Definitions
 // ---------------------------------------------------------------------------
@@ -375,7 +385,15 @@ export const auditLogsRelations = relations(auditLogs, ({ one }) => ({
 // ---------------------------------------------------------------------------
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
-export type UserRole = 'PARTICIPANT' | 'JUDGE' | 'ORGANIZER' | 'ADMIN';
+export type UserRole =
+  | 'PARTICIPANT'
+  | 'JUDGE'
+  | 'ORGANIZER'
+  | 'ADMIN'
+  | 'participant'
+  | 'judge'
+  | 'organizer'
+  | 'admin';
 export type UserStatus = 'ACTIVE' | 'INACTIVE' | 'SUSPENDED';
 
 export type Profile = typeof profiles.$inferSelect;
@@ -429,3 +447,7 @@ export type NewSubmissionVersion = typeof submissionVersions.$inferInsert;
 
 export type AuditLog = typeof auditLogs.$inferSelect;
 export type NewAuditLog = typeof auditLogs.$inferInsert;
+
+// Member 2: Judging Module Tables
+export * from './judging.schema';
+

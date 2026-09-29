@@ -1,8 +1,18 @@
-import { User, Profile, Session, UserRole, UserStatus } from '../db/schema';
+import { User, Profile, Session, UserStatus } from '../db/schema';
 
-export type SafeUser = Omit<User, 'passwordHash'> & {
+export interface AuthenticatedUser {
+  id: string;
+  email: string;
+  role: 'participant' | 'judge' | 'organizer' | 'admin' | string;
+  status?: UserStatus;
+  createdAt?: Date;
+  updatedAt?: Date;
   profile?: Profile | null;
-};
+}
+
+export type SafeUser = (Omit<User, 'passwordHash'> & {
+  profile?: Profile | null;
+}) | AuthenticatedUser;
 
 declare global {
   namespace Express {
